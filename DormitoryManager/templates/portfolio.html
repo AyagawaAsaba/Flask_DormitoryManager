@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <meta name="description" content="Free Bootstrap Theme">
+    <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+    
+    <link href="https://fonts.googleapis.com/css?family=Bellefair|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles-merged.css">
+    <link rel="stylesheet" href="../static/css/style.min.css">
+
+    <!--[if lt IE 9]>
+      <script src="../static/js/vendor/html5shiv.min.js"></script>
+      <script src="../static/js/vendor/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+    <!-- Fixed navbar -->
+    
+    
+    <nav class="navbar navbar-default navbar-fixed-top probootstrap-navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ url_for('index') }}" title="uiCookies:FineOak">FineOak</a>
+        </div>
+
+        <div id="navbar-collapse" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ url_for('index') }}">首页</a></li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">宿舍内容</a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-submenu dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span>景致预览</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url_for('gallery') }}">景致图</a></li>
+                                <li><a href="{{ url_for('portfolio') }}">学生宿舍</a></li>
+                                <li><a href="{{ url_for('portfolio_single') }}">教师宿舍</a></li>
+                                <li><a href="{{ url_for('about') }}">关于宿舍</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ url_for('services') }}">宿舍服务</a></li>
+                        <li><a href="{{ url_for('contact') }}">与我们联系</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">个人信息</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for("user.register") }}">注册</a></li>
+                        <li><a href="{{ url_for('user.login') }}">登录</a></li><!--
+              <li><a href="{{ url_for('dashboard') }}">后台管理</a></li>-->
+                    </ul>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="flexslider">
+      <ul class="slides">
+          <li style="background-image: url(../static/img/student/student_1.jpg)" class="overlay">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+                <div class="probootstrap-slider-text text-center">
+                    <h1 class="probootstrap-heading">学生宿舍</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        
+      </ul>
+    </section>
+    
+    <section class="probootstrap-section probootstrap-bg-white">
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-md-12">
+            <div class="portfolio-feed three-cols">
+              <div class="grid-sizer"></div>
+              <div class="gutter-sizer"></div>
+            
+              <figure class="grid-item probootstrap-animate">
+                <a href="portfolio-single.html" class="probootstrap-gallery-item">
+                    <img src="../static/img/student/student_1.jpg" alt="Free Bootstrap Template"/>
+                </a>
+              </figure>
+              <figure class="grid-item probootstrap-animate">
+                <a href="portfolio-single.html" class="probootstrap-gallery-item">
+                    <img src="../static/img/student/student_2.jpg" alt="Free Bootstrap Template"/>
+                </a>
+              </figure>
+              <figure class="grid-item probootstrap-animate">
+                <a href="portfolio-single.html" class="probootstrap-gallery-item">
+                    <img src="../static/img/student/student_3.jpg" alt="Free Bootstrap Template"/>
+                </a>
+              </figure>
+              <figure class="grid-item probootstrap-animate">
+                <a href="portfolio-single.html" class="probootstrap-gallery-item">
+                    <img src="../static/img/student/student_4.jpg" alt="Free Bootstrap Template"/>
+                </a>
+              </figure>
+
+              <figure class="grid-item probootstrap-animate">
+                <a href="portfolio-single.html" class="probootstrap-gallery-item">
+                    <img src="../static/img/student/student_5.jpg" alt="Free Bootstrap Template"/>
+                </a>
+              </figure>
+              <figure class="grid-item probootstrap-animate">
+                <a href="portfolio-single.html" class="probootstrap-gallery-item">
+                    <img src="../static/img/student/student_6.jpg" alt="Free Bootstrap Template"/>
+                </a>
+              </figure>
+              <figure class="grid-item probootstrap-animate">
+                <a href="portfolio-single.html" class="probootstrap-gallery-item">
+                    <img src="../static/img/student/student_7.jpg" alt="Free Bootstrap Template"/>
+                </a>
+              </figure>
+              <figure class="grid-item probootstrap-animate">
+                <a href="portfolio-single.html" class="probootstrap-gallery-item">
+                    <img src="../static/img/student/student_8.jpg" alt="Free Bootstrap Template"/>
+                </a>
+              </figure>
+
+              <figure class="grid-item probootstrap-animate">
+                <a href="portfolio-single.html" class="probootstrap-gallery-item">
+                    <img src="../static/img/student/servers_1.jpg" alt="Free Bootstrap Template"/>
+                </a>
+              </figure>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <section class="probootstrap-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
+                    <h2>我们能提供的服务</h2>
+                    <p class="lead">我们所做的一切，皆为学生提供方便、快捷的服务！</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="service left-icon probootstrap-animate">
+                        <div class="icon"><i class="icon-mobile3"></i></div>
+                        <div class="text">
+                            <h3>宿舍费用管理</h3>
+                            <p>
+                                入住人员进行宿舍水电费计算核算标准，依据核算结果，以及依据房间人数，再进行房间水电费总结算。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service left-icon probootstrap-animate">
+                        <div class="icon"><i class="icon-presentation"></i></div>
+                        <div class="text">
+                            <h3>效率走向</h3>
+                            <p>
+                                管理员和宿管可以更高效地管理宿舍和学生，提高工作效率和准确性。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service left-icon probootstrap-animate">
+                        <div class="icon"><i class="icon-circle-compass"></i></div>
+                        <div class="text">
+                            <h3>账号信息管理</h3>
+                            <p>
+                                本系统所有的账号都是由管理员进行添加的，管理员可以在本系统对账号进行添加、查询、修改、删除
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="service left-icon probootstrap-animate">
+                        <div class="icon"><i class="icon-lightbulb"></i></div>
+                        <div class="text">
+                            <h3>基本本信息管理</h3>
+                            <p>
+                                基本信息分为学生信息和宿舍信息两部分，其功能是负责维护这些信息，对 它们进行增删查改等操作。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="service left-icon probootstrap-animate">
+                        <div class="icon"><i class="icon-magnifying-glass2"></i></div>
+                        <div class="text">
+                            <h3>学生信息管理</h3>
+                            <p>
+                                添加学生、删除学生、修改学生信息、查询学生
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="service left-icon probootstrap-animate">
+                        <div class="icon"><i class="icon-browser2"></i></div>
+                        <div class="text">
+                            <h3>综合查询管理</h3>
+                            <p>
+                                包括查找学生信息、各楼栋／专业的学生宿舍分配情况、卫生检查情况、学 生离返校及留校信息、指定类型的留言、查看宿舍成员等
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- END row -->
+        </div>
+    </section>
+ 
+    <footer class="probootstrap-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+              <ul class="probootstrap-footer-social">
+                <li><a href="#"><i class="icon-twitter"></i></a></li>
+                <li><a href="#"><i class="icon-facebook"></i></a></li>
+                <li><a href="#"><i class="icon-github"></i></a></li>
+                <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                <li><a href="#"><i class="icon-youtube"></i></a></li>
+              </ul>
+          </div>
+        </div>
+        <!-- END row -->
+        <div class="row">
+          <div class="col-md-12 copyright text-center">
+            <p>&copy; 2017 -- {{ year }}. All Rights Reserved. </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  
+    <script src="../static/js/scripts.min.js"></script>
+    <script src="../static/js/custom.min.js"></script>
+
+  </body>
+</html>

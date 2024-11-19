@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo</title>
+    <!-- 请勿在项目正式环境中引用该 layui.css 地址 --><!--
+  <link href="//unpkg.com/layui@2.9.2/dist/css/layui.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="../static/layui/css/layui.css">
+</head>
+
+<body>
+<p>宿舍列表：</p>
+<table class="layui-table" lay-data="{url:'/static/json/2/table/demo2.json?v=2', page: true, limit: 6, limits:[6]}"
+       id="ID-table-demo-theads-1">
+    <thead>
+    <tr>
+        <th lay-data="{checkbox:true, width:3%}" rowspan="2">ID</th>
+        <th lay-data="{field:'username', width:5%}" rowspan="2">联系人</th>
+        <th lay-data="{align:'center', width:66%}" colspan="3">地址</th>
+        <th lay-data="{field:'amount', width:12%}" rowspan="2">数量</th>
+        <th lay-data="{fixed: 'right', width: 22%, align: 'center', toolbar: '#templet-demo-theads-tool'}" rowspan="2">
+            操作
+        </th>
+    </tr>
+    <tr>
+        <th lay-data="{field:'province', width:22%}">省</th>
+        <th lay-data="{field:'city', width:22%}">市</th>
+        <th lay-data="{field:'zone', width:22%}">区</th>
+    </tr>
+    </thead>
+</table>
+<script type="text/html" id="templet-demo-theads-tool">
+    <div class="layui-clear-space">
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">按钮1</a>
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">按钮2</a>
+    </div>
+</script>
+
+<!-- 请勿在项目正式环境中引用该 layui.js 地址 --><!--
+<script src="//unpkg.com/layui@2.9.2/dist/layui.js"></script>-->
+<script src="../static/layui/layui.js"></script>
+
+</body>
+
+</html>

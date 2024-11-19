@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link href="//cdn.staticfile.org/layui/2.8.10/css/layui.css" rel="stylesheet">-->
+    <!-- <link href="//cdn.staticfile.org/layui/2.9.1/css/layui.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="../../static/layui/css/layui.css">
+</head>
+
+<body>
+<div class="layui-layout layui-layout-admin">
+
+    <div class="layui-header">
+        <div class="layui-logo  layui-bg-black">
+            <i class="layui-icon layui-icon-console"></i>
+            <span>宿舍管理系统</span>
+        </div>
+        <!-- 头部区域（可配合layui 已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <!-- 移动端显示 -->
+            <li class="layui-nav-item layui-show-xs-inline-block " lay-header-event="menuLeft">
+                <a href="javascript:;" lay-event="refresh" title="侧边伸缩">
+                    <i class="layui-icon layui-icon-spread-left" id="icon"></i>
+                </a>
+                <!--        上面li标签和原来复制下来的不一样-->
+                <!-- <i class="layui-icon layui-icon-spread-left" id="icon"></i> -->
+            </li>
+            <li class="layui-nav-item layui-hide-xs">
+                <a href="{{ url_for('qa.index') }}" target="_blank" title="前台">
+                    <i class="layui-icon layui-icon-website" id="icon"></i>
+                </a>
+            </li>
+            <li class="layui-nav-item layui-hide-xs">
+                <a href="javascript:;" lay-event="refresh" title="刷新">
+                    <i class="layui-icon layui-icon-refresh-3" id="icon"></i>
+                </a>
+            </li>
+            <li class="layui-nav-item layui-hide-xs">
+                <label>
+                    <input type="text" placeholder="搜索..." autocomplete="off" class="layui-input layui-input-search"
+                           lay-event="search" lay-action="template/search.html?keywords=">
+                </label>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <!-- 消息中心 -->
+            <li class="layui-nav-item" lay-unselect="">
+                <a lay-href="app/message/index.html" lay-event="message" lay-text="消息中心">
+                    <i class="layui-icon layui-icon-notice"></i>
+                    <!-- 如果有新消息，则显示小圆点 -->
+                    <span class="layui-badge-dot"></span>
+                </a>
+            </li>
+            <!-- 备忘录 -->
+            <li class="layui-nav-item layui-hide-xs" lay-unselect="">
+                <a href="javascript:;" lay-event="note">
+                    <i class="layui-icon layui-icon-note"></i>
+                </a>
+            </li>
+            <!-- 主题颜色更改 -->
+            <li class="layui-nav-item layui-hide-xs" lay-unselect="">
+                <a href="javascript:;" lay-event="theme">
+                    <i class="layui-icon layui-icon-theme"></i>
+                </a>
+            </li>
+            <!-- 全屏显示 -->
+            <li class="layui-nav-item layui-hide-xs" lay-unselect="">
+                <a href="javascript:;" lay-event="fullscreen">
+                    <i class="layui-icon layui-icon-screen-full"></i>
+                </a>
+            </li>
+            <!-- 用户主体 -->
+            <li class="layui-nav-item layui-hide layui-show-sm-inline-block">
+                <a href="javascript:;">
+                    <img src="../../static/img/header.jpg" class="layui-nav-img" alt="">
+                    Username
+                </a>
+                <dl class="layui-nav-child">
+                    <dd>
+                        <a href="javascript:;">
+                            <i class="layui-icon layui-icon-username"></i>
+                            <span>个人信息</span>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;">
+                            <i class="layui-icon layui-icon-set"></i>
+                            <span>设置</span>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="{{ url_for('user.logout') }}">
+                            <i class="layui-icon layui-icon-logout"></i>
+                            <span>登出</span>
+                        </a>
+                    </dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
+                <a href="javascript:;">
+                    <i class="layui-icon layui-icon-more-vertical"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <!-- 仪表盘 -->
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="{{ url_for('home.dashboard') }}">
+                        <i class="layui-icon layui-icon-home"></i>
+                        <span>仪表盘</span>
+                    </a>
+                </li>
+                <!-- 宿舍管理 -->
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">
+                        <i class="layui-icon layui-icon-template-1"></i>
+                        <span>宿舍管理</span>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <!--            这里的    lay-href   改成自己点击要跳转的页面的路径-->
+                        <dd>
+                            <a href="javascript:;" class="link-active" lay-href="{{ url_for('home.dashboard') }}"
+                               data-id="1"
+                               data-title="页面1">
+                                <i class="layui-icon layui-icon-spread-left"></i>
+                                <span>宿舍列表</span>
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" class="link-active" lay-href="test.html" data-id="2"
+                               data-title="页面2">
+                                <i class="layui-icon layui-icon-spread-left"></i>
+                                <span>人员信息</span>
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" class="link-active" lay-href="test.html" data-id="2"
+                               data-title="页面2">
+                                <i class="layui-icon layui-icon-spread-left"></i>
+                                <span>维修登记</span>
+                            </a>
+                        </dd>
+
+                    </dl>
+                </li>
+                <!-- 应用 -->
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <i class="layui-icon layui-icon-set"></i>
+                        <span>应用</span>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;">
+                                <i class="layui-icon layui-icon-form"></i>
+                                <span>卫生管理</span>
+                            </a>
+                            <dl class="layui-nav-child">
+                                <dl><a href="javascript:;">学生卫生</a></dl>
+                                <dl><a href="javascript:;">宿舍卫生</a></dl>
+                            </dl>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;">
+                                <i class="layui-icon layui-icon-username"></i>
+                                <span>个人设置</span>
+                            </a>
+                            <dl class="layui-nav-child">
+                                <dl><a href="javascript:;">基本信息</a></dl>
+                                <dl><a href="javascript:;">修改密码</a></dl>
+                            </dl>
+                        </dd>
+                    </dl>
+                </li>
+                <!-- 卫生管理 -->
+                <!-- <li class="layui-nav-item">
+                  <a href="javascript:;">
+                    <i class="layui-icon layui-icon-form"></i>
+                    <span>卫生管理</span>
+                  </a>
+                  <dl class="layui-nav-child">
+                    <dd><a href="javascript:;">学生卫生</a></dd>
+                    <dd><a href="javascript:;">宿舍卫生</a></dd>
+                  </dl>
+                </li> -->
+                <!-- 充值缴费 -->
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">
+                        <i class="layui-icon layui-icon-rmb"></i>
+                        <span>充值缴费</span>
+                    </a>
+                </li>
+                <!-- 用户管理 -->
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <i class="layui-icon layui-icon-user"></i>
+                        <span>用户</span>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;">
+                                <i></i>
+                                <span>网站用户</span>
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;">
+                                <i></i>
+                                <span>后台管理员</span>
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;">
+                                <i></i>
+                                <span>角色管理</span>
+                            </a>
+                        </dd>
+                    </dl>
+                </li>
+                <!-- 设置 -->
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <i class="layui-icon layui-icon-set"></i>
+                        <span>设置</span>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;">
+                                <i class="layui-icon layui-icon-set-sm"></i>
+                                <span>系统设置</span>
+                            </a>
+                            <dl class="layui-nav-child">
+                                <dl><a href="javascript:;">基本信息</a></dl>
+                                <dl><a href="javascript:;">修改密码</a></dl>
+                            </dl>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;">
+                                <i class="layui-icon layui-icon-username"></i>
+                                <span>个人设置</span>
+                            </a>
+                            <dl class="layui-nav-child">
+                                <dl><a href="javascript:;">基本信息</a></dl>
+                                <dl><a href="javascript:;">修改密码</a></dl>
+                            </dl>
+                        </dd>
+                    </dl>
+                </li>
+                <!-- 意见反馈 -->
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <i class="layui-icon layui-icon-service"></i>
+                        <span>意见反馈</span>
+                    </a>
+                </li>
+                <!-- 关于 -->
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <i class="layui-icon layui-icon-about"></i>
+                        <span>关于</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="layui-body">
+        <div class="layui-tab" lay-filter="tables" lay-allowclose="true">
+            <ul class="layui-tab-title">
+                <!--这里和原来复制的不一样-->
+            </ul>
+            <div class="layui-tab-content">
+                <!-- 内容主体区域 -->
+            </div>
+            <div class="layui-footer">
+                <!-- 底部固定区域 -->
+                底部固定区域
+            </div>
+        </div>
+    </div>
+    <!-- 内容主体区域 -->
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        &copy; 2017 —— {{ year }}. 宿舍后台管理系统 All Rights Reserved.
+    </div>
+</div>
+
+<!-- <script src="//cdn.staticfile.org/layui/2.8.10/layui.js"></script> -->
+<!-- <script src="//cdn.staticfile.org/layui/2.9.2/layui.js"></script> -->
+<script src="../../static/layui/layui.js"></script>
+
+<script>
+    //JS
+    layui.use(['element', 'layer', 'util'], function () {
+        const element = layui.element;
+        const layer = layui.layer;
+        const util = layui.util;
+        const $ = layui.$;
+        let isShow = true;
+
+        //头部事件
+        util.event('lay-header-event', {
+            menuLeft: function (othis) { // 左侧菜单事件
+                //定义一个标志位
+                //选择出所有的span，并判断是不是hidden,用来隐藏icon后面的span里面的内容，而icon不隐藏
+                $('.layui-nav-item span').each(function () {
+                    if ($(this).is(':hidden')) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+
+                    }
+                    ;
+                });
+                $('.layui-header span').each(function () {//同上
+                    if ($(this).is(':hidden')) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                    ;
+                });
+
+                //判断isShow的状态
+                if (isShow) {//收起来
+                    $('.layui-side.layui-bg-black').width(60); //设置宽度
+                    $('.layui-logo').width(60);
+                    // $('.kit-side-fold i').css('margin-right', '70%');  //修改图标的位置
+                    $('#icon').removeClass("layui-icon-spread-left");  //修改图标
+                    $('#icon').addClass("layui-icon-shrink-right");  //修改图标
+                    $('.layui-side li').removeClass("layui-nav-itemed");//取消选中二级导航栏
+                    //将footer和body的宽度修改
+                    $('.layui-layout-left').css('left', 60 + 'px');
+                    $('.layui-body').css('left', 60 + 'px');
+                    $('.layui-footer').css('left', 60 + 'px');
+                    //将二级导航栏隐藏
+                    // $('dd span').each(function () {
+                    //   $(this).hide();
+                    // });
+                    //修改标志位
+                    isShow = false;
+                } else {//展开来
+                    $('.layui-side.layui-bg-black').width(200);
+                    $('.layui-logo').width(200);
+                    //  $('.kit-side-fold i').css('margin-right', '10%');
+                    $('.layui-layout-left').css('left', 200 + 'px');
+                    $('.layui-body').css('left', 200 + 'px');
+                    $('.layui-footer').css('left', 200 + 'px');
+                    $('dd span').each(function () {
+                        $(this).show();
+                    });
+                    $('#icon').addClass("layui-icon-spread-left");  //修改图标
+                    $('#icon').removeClass("layui-icon-shrink-right");  //修改图标
+                    isShow = true;
+                }
+                ;
+            },
+            menuRight: function () {  // 右侧菜单事件
+                layer.open({
+                    type: 1,
+                    title: '更多',
+                    content: '<div style="padding: 15px;">处理右侧面板的操作</div>',
+                    area: ['260px', '100%'],
+                    offset: 'rt', // 右上角
+                    anim: 'slideLeft', // 从右侧抽屉滑出
+                    shadeClose: true,
+                    scrollbar: false
+                });
+            }
+        });
+    });
+</script>
+<!-- 绑定事件 -->
+<script>//JavaScript代码区域
+layui.use(['element', 'layer', 'jquery'], function () {
+    const element = layui.element;
+    const $ = layui.jquery;
+    //左侧菜单点击事件
+    $('.link-active').on('click', function () {
+        const dataid = $(this);
+
+        //判断tab是否已经存在
+        let isExist = false;
+        $.each($('.layui-tab-title li[lay-id]'), function () {
+            //判断主体是否存在与点击tab相同的lay-id
+            if ($(this).attr('lay-id') === dataid.attr("data-id")) {
+                isExist = true;
+            }
+        });
+        //不存在，增加tab
+        if (isExist === false) {
+            tabFunction.tabAdd(dataid.attr('lay-href'), dataid.attr('data-id'), dataid.attr('data-title'));
+        }
+        //存在tab，此时转到要打开的tab就好，不需要新增
+        tabFunction.tabChange(dataid.attr('data-id'));
+
+    });
+
+    //定义函数 绑定增加tab，删除tab，切换tab几项事件
+    const tabFunction = {
+        //新增tab url 页面地址 id 对应data-id name标题
+        tabAdd: function (url, id, name) {
+            element.tabAdd('tables', {
+                title: name,
+                content: '<iframe data-frameid="' + id + '" scrolling="auto" frameborder="0" src="' + url + '" style="width:100%;height:800px"></iframe>',
+                id: id
+            });
+        },
+        //根据id切换tab
+        tabChange: function (id) {
+            element.tabChange('tables', id)
+        },
+        //关闭指定的tab
+        tabDelete: function (id) {
+            element.tabDelete('tables', id)
+        }
+    }
+});
+</script>
+<!-- 返回顶层按钮 -->
+<script>
+    layui.use(function () {
+        const util = layui.util;
+        // 自定义固定条
+        util.fixbar({
+            // bars: [// 定义可显示的 bar 列表信息 -- v2.8.0 新增
+            //   {
+            //   type: 'help',
+            //   icon: 'layui-icon-help'
+            // }],
+            // bar1: true,
+            // bar2: true,
+            // default: false, // 是否显示默认的 bar 列表 --  v2.8.0 新增
+            // bgcolor: '#393D52', // bar 的默认背景色
+            // css: {right: 100, bottom: 100},
+            // target: '#target-test', // 插入 fixbar 节点的目标元素选择器
+            // duration: 300, // top bar 等动画时长（毫秒）
+            on: { // 任意事件 --  v2.8.0 新增
+                mouseenter: function (type) {
+                    layer.tips(type, this, {
+                        tips: 4,
+                        fixed: true
+                    });
+                },
+                mouseleave: function (type) {
+                    layer.closeAll('tips');
+                }
+            },
+            // 点击事件
+            click: function (type) {
+                console.log(this, type);
+                // layer.msg(type);
+            }
+        });
+    });
+</script>
+</body>
+
+</html>

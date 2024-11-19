@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <meta name="description" content="Free Bootstrap Theme">
+    <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+    
+    <link href="https://fonts.googleapis.com/css?family=Bellefair|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles-merged.css">
+    <link rel="stylesheet" href="../static/css/style.min.css">
+
+    <!--[if lt IE 9]>
+      <script src="../static/js/vendor/html5shiv.min.js"></script>
+      <script src="../static/js/vendor/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+    <!-- Fixed navbar -->
+    
+    
+    <nav class="navbar navbar-default navbar-fixed-top probootstrap-navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ url_for('index') }}" title="uiCookies:FineOak">FineOak</a>
+        </div>
+
+        <div id="navbar-collapse" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ url_for('index') }}">首页</a></li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">宿舍内容</a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-submenu dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span>景致预览</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url_for('gallery') }}">景致图</a></li>
+                                <li><a href="{{ url_for('portfolio') }}">学生宿舍</a></li>
+                                <li><a href="{{ url_for('portfolio_single') }}">教师宿舍</a></li>
+                                <li><a href="{{ url_for('about') }}">关于宿舍</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ url_for('services') }}">宿舍服务</a></li>
+                        <li><a href="{{ url_for('contact') }}">与我们联系</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">个人信息</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for("user.register") }}">注册</a></li>
+                        <li><a href="{{ url_for('user.login') }}">登录</a></li><!--
+              <li><a href="{{ url_for('dashboard') }}">后台管理</a></li>-->
+                    </ul>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="flexslider">
+      <ul class="slides">
+          <li style="background-image: url(../static/img/student/student_1.jpg)" class="overlay">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+                <div class="probootstrap-slider-text text-center">
+                    <h1 class="probootstrap-heading">和我们联系</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        
+      </ul>
+    </section>
+    
+    <section class="probootstrap-section probootstrap-bg-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5 probootstrap-animate">
+            <form action="#" method="post" class="probootstrap-form">
+              <div class="form-group">
+                  <label for="name">姓名</label>
+                <input type="text" class="form-control" id="name" name="name">
+              </div>
+              <div class="form-group">
+                  <label for="email">邮箱</label>
+                <input type="email" class="form-control" id="email" name="email">
+              </div>
+              <div class="form-group">
+                  <label for="subject">班级</label>
+                <input type="text" class="form-control" id="subject" name="subject">
+              </div>
+              <div class="form-group">
+                  <label for="message">信息</label>
+                <textarea cols="30" rows="10" class="form-control" id="message" name="message"></textarea>
+              </div>
+              <div class="form-group">
+                  <input type="submit" class="btn btn-primary btn-lg" id="submit" name="submit" value="提交联系">
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6 col-md-push-1 probootstrap-animate">
+
+
+              <h4>综合大厅</h4>
+            <ul class="probootstrap-contact-info">
+                <li><i class="icon-pin"></i> <span>合肥财经职业学院——综合楼一楼综合大厅</span></li>
+                <li><i class="icon-email"></i><span>hfcj@domain.com</span></li>
+              <li><i class="icon-phone"></i><span>+123 456 7890</span></li>
+            </ul>
+
+              <h4>合肥财经</h4>
+            <ul class="probootstrap-contact-info">
+                <li><i class="icon-pin"></i> <span>合肥财经职业学院</span></li>
+                <li><i class="icon-email"></i><span>hfcj12138@domain.com</span></li>
+              <li><i class="icon-phone"></i><span>+123 456 7890</span></li>
+            </ul>
+            
+          </div>
+        </div>
+      </div>
+    </section>   
+
+    <footer class="probootstrap-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+              <ul class="probootstrap-footer-social">
+                <li><a href="#"><i class="icon-twitter"></i></a></li>
+                <li><a href="#"><i class="icon-facebook"></i></a></li>
+                <li><a href="#"><i class="icon-github"></i></a></li>
+                <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                <li><a href="#"><i class="icon-youtube"></i></a></li>
+              </ul>
+          </div>
+        </div>
+        <!-- END row -->
+        <div class="row">
+          <div class="col-md-12 copyright text-center">
+            <p>&copy; 2017 -- {{ year }}. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+
+    <script src="../static/js/scripts.min.js"></script>
+    <script src="../static/js/custom.min.js"></script>
+
+  </body>
+</html>
